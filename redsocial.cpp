@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 #include "redsocial.h"
 
 using namespace std;
@@ -14,7 +13,7 @@ void RedSocial::agregarUsuario(){
     Usuario usuario(nombreUsuario);
     usuarios.push_back(usuario);
     numeroDeUsuarios++;
-    cout << "Usuario " << nombreUsuario << " agregado correctamente." << endl;
+    cout << "El usuario: " << nombreUsuario << " agregado correctamente." << endl;
 }
 
 void RedSocial::mostrarUsuarios(){
@@ -32,14 +31,15 @@ void RedSocial::mostrarPublicaciones(){
 }
 
 Usuario* RedSocial::getUsuario(int id){
-for (Usuario& usuario : usuarios) {
-        if (usuario.id == id) {
+ for (Usuario& usuario : usuarios) {
+        if (usuario.getId() == id) {
             return &usuario;
         }
+    }
+    std::cout << "No se encontró un usuario con el ID " << id << std::endl;
+    return nullptr;
 }
-   cout << "No se encontró un usuario con el ID " << id << endl;
-    return 0;
-}
+
 
 RedSocial::RedSocial(string nombre){
     this->nombre = nombre;
