@@ -35,7 +35,7 @@ Usuario* RedSocial::getUsuario(int id){
         if (usuario.getId() == id) {
             return &usuario;
         }
-    }
+ }
     std::cout << "No se encontró un usuario con el ID " << id << std::endl;
     return nullptr;
 }
